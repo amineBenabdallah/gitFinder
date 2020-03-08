@@ -1,0 +1,30 @@
+<div class="form">
+	<form (ngSubmit)="getUserInformation()">
+		<input class="search" [(ngModel)]="userName" type="text" name="username" placeholder="Enter a username...">
+		<button class="button searchButton" type="submit">Search</button>
+	</form>
+	<div *ngIf="error;else elseBlock">
+		<div class="isa_error">
+	      <i class="fa fa-times-circle"></i>
+	        {{error}}
+	    </div>
+	</div>
+</div>
+<ng-template #elseBlock>
+	<div class="row center">
+		<div *ngFor="let repository of repositories">
+		  <div class="column">
+			    <div class="card">
+			        <h3 class="center">{{repository.name}}</h3>
+					<ul>
+						<li>Owner: {{repository.login}}</li>
+				        <div *ngFor="let branch of  repository.branches;index as i">
+						  <li>Branche {{i+1}} : {{branch.name}}</li>
+						  <li>Last commit sha: {{ branch.sha }}</li>
+				        </div>
+				    </ul>
+			    </div>
+		  </div>	
+		</div>
+	</div>
+</ng-template>

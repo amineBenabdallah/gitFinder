@@ -1,0 +1,100 @@
+$text-center : center ;
+$decent-gradien-color : linear-gradient(315deg, #4ca1af 0%, #c4e0e5 74%);
+$sylvia-gradien-color : linear-gradient(315deg, #E44D26 0%, #F16529 74%);
+$white-background: f5f5f5;
+$margin-bottom: 20px;
+@mixin width ($value){
+  width: $value;
+}
+@mixin borderRadius($value){
+  border-radius: $value;
+}
+
+@mixin fontSize($value){
+  font-size: $value;
+}
+@mixin padding($padBottom,$padLeft,$padRight,$padTop){
+  padding: $padBottom $padLeft $padRight $padTop;
+}
+@mixin border($width,$style,$color){
+  border: $width $style $color;
+}
+.search {
+  @include width (400px);
+  @include padding(12px,20px,12px,40px);
+  @include border(2px,solid,#ccc);
+  @include borderRadius (4px);
+  @include fontSize (16px);
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.form {
+  @include width (100%);
+  text-align: $text-center;
+}
+.button {
+  @include width (120px);
+  @include fontSize (20px);
+  height: 50px;
+  max-width: 100%;
+  font-weight: normal;
+  background-image: $sylvia-gradien-color;
+  color: white;
+
+}
+
+.searchButton {
+  @include borderRadius (10px);
+  text-align: $text-center;
+  color: 333;
+  background: $white-background;
+  transition: all 0.2s ease-out 0s;
+}
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+
+/* Float four columns side by side */
+.column {
+  @include width (380px);
+  @include padding(2px,10px,0,0);
+  @include border(1px,double,gray);
+  @include borderRadius (5px);
+  float: left;
+  margin-bottom: $margin-bottom;
+  height: 150px; 
+  overflow: auto;
+  background-image: $decent-gradien-color;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(0.2, 0.2, 0.2, 0.2);
+
+}
+::-webkit-scrollbar {
+    display: none;
+}
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+  margin-top: 20px;
+  margin-bottom: $margin-bottom;
+
+}
+/* Style the counter cards */
+.card {
+  
+  @include padding(2px,0,0,0);
+  font-family: monospace;
+  height: 150px; 
+  color: black;
+  text-align: left;
+  
+}
+.center {
+  text-align: $text-center;
+}
+.isa_error {
+    color: #D8000C;
+}
